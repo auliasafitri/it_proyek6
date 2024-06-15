@@ -30,7 +30,7 @@
                                     <a href="/dashboard">Dashboard</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="/kategori">Data Kategori</a>
+                                    <a href="/kategori">Kategori</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Tambah Kategori

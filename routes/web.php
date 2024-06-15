@@ -32,10 +32,12 @@ Route::get('/barangs', [BarangController::class, 'index'])->name('barang.index')
 Route::get('/createBarang', [BarangController::class, 'create'])->name('barang.create');
 Route::post('/storeBarang', [BarangController::class, 'store'])->name('barang.store');
 
-
 Route::get('/editBarang/{id_barang}', [BarangController::class, 'edit'])->name('barang.edit');
 Route::put('/updateBarang/{id_barang}', [BarangController::class, 'update'])->name('barang.update');
 
 Route::delete('/deleteBarang/{id_barang}', [BarangController::class, 'delete'])->name('barang.delete');
 
  
+// Route::get('/cetak-struk', 'DetailTransaksiController')->name('cetak.struk');
+
+Route::post('/auth/logout', [AuthController::class, 'logout'])->name('logout');

@@ -31,7 +31,7 @@
 									<p>Dashboard</p>
 								</li>
 								<li class="breadcrumb-item active" aria-current="page">
-									Data kategori
+									Kategori
 								</li>
 							</ol>
 						</nav>
@@ -46,7 +46,7 @@
 			<div class="card-box mb-30">
 				<div class="pd-20">
 					<a href="/kategori/create" class="btn btn-outline-primary btn-sm"><i class="fa fa-plus">TAMBAH KATEGORI</i></a>
-					{{-- <h4 class="text-blue h4">Data kategori</h4> --}}
+					{{-- <h4 class="text-blue h4">Kategori</h4> --}}
 					
 				</div>
 				<div class="pb-20">
@@ -101,22 +101,6 @@
 					</table>
 				</div>
 			</div>
-			<!-- Simple Datatable End -->
-			{{-- <!-- multiple select row Datatable start -->
-		
-			<!-- multiple select row Datatable End -->
-		
-			<!-- Checkbox select Datatable End -->
-			<!-- Export Datatable start -->
-
-			<!-- Export Datatable End --> --}}
-		</div>
-		<!-- <div class="footer-wrap pd-20 mb-20 card-box">
-			DeskApp - Bootstrap 4 Admin Template By
-			<a href="https://github.com/dropways" target="_blank"
-				>Ankit Hingarajiya</a
-			>
-		</div> -->
 	</div>
 
 @endsection
