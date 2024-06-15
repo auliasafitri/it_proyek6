@@ -24,4 +24,6 @@ Route::get('/DetailTransaksi/{id}/detail', [DetailTransaksiController::class,'de
 Route::resource('/DetailTransaksi', DetailTransaksiController::class);
 Route::get('/Kategori/{id}/kategori', [KategoriController::class,'kategori'])->name('Kategori.kategori');
 Route::resource('/kategori', KategoriController::class);
+// Route::get('/cetak-struk', 'DetailTransaksiController')->name('cetak.struk');
+
 Route::post('/auth/logout', [AuthController::class, 'logout'])->name('logout');

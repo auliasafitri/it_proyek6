@@ -31,7 +31,7 @@
 									<p>Dashboard</p>
 								</li>
 								<li class="breadcrumb-item active" aria-current="page">
-									Data Detail Transaksi
+									Detail Transaksi
 								</li>
 							</ol>
 						</nav>
@@ -68,7 +68,7 @@
 									<td class="table-plus">{{ $dp->tgl_transaksi }}</td>
 									<td>
 									<a href="{{ route('DetailTransaksi.detail', $dp->tgl_transaksi) }}"
-                                    <button class="btn btn-success text-white"><i class="bi bi-eye"></i>Detail</button>
+                                    <button class="btn btn-success text-white"><i class="bi bi-eye"></i>View</button>
                                     </a>
                                     <a href="{{ route('DetailTransaksi.destroy', $dp->id_detail) }}"
 													
