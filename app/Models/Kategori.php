@@ -9,13 +9,16 @@ class Kategori extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_kategori';
+    
     protected $fillable = [
-        'id_kategori',
-        'nama_kategori',
+        
+        'nama_kategori'
     ];
 
-    protected $table='kategori';
-    protected $primaryKey = 'id_kategori';
-    protected $keyType = 'string';
-    public $timestamps = false;
+   // Relasi ke model Barang
+   public function barangs()
+   {
+       return $this->hasMany(Barang::class, 'id_kategori', 'id_kategori');
+   }
 }
