@@ -31,7 +31,7 @@
 									<p>Dashboard</p>
 								</li>
 								<li class="breadcrumb-item active" aria-current="page">
-									Data Detail Transaksi
+									Detail Transaksi
 								</li>
 							</ol>
 						</nav>
@@ -47,6 +47,19 @@
 				<div class="pd-20">
 					
 					{{-- <h4 class="text-blue h4">Data Detail Transaksi</h4> --}}
+				<form action="{{ route('cetakRekap') }}" method="GET" class="form-inline">
+					<div class="form-group">
+						<label for="tanggal_dari">Tanggal Dari:</label>
+						<input type="date" name="tanggal_dari" id="tanggal_dari" class="form-control mx-sm-2">
+					</div>
+					<div class="form-group">
+						<label for="tanggal_sampai">Tanggal Sampai:</label>
+						<input type="date" name="tanggal_sampai" id="tanggal_sampai" class="form-control mx-sm-2">
+					</div>
+					<button type="submit" class="btn btn-primary">
+						<i class="fa fa-print"></i> Cetak Laporan Rekap
+					</button>
+				</form>
 					
 				</div>
 				<div class="pb-20">
@@ -65,20 +78,20 @@
 							@foreach ($DetailTransaksi as $dp)
 								<tr>
 								<td class="table-plus">{{ $no++ }}</td>
-									<td class="table-plus">{{ $dp->tgl_transaksi }}</td>
+									<td class="table-plus">{{ $dp->tanggal }}</td>
 									<td>
-									<a href="{{ route('DetailTransaksi.detail', $dp->tgl_transaksi) }}"
+									<a href="{{ route('DetailTransaksi.detail', $dp->id_transaksi) }}"
                                     <button class="btn btn-success text-white"><i class="bi bi-eye"></i>Detail</button>
                                     </a>
-                                    <a href="{{ route('DetailTransaksi.destroy', $dp->id_detail) }}"
+                                    <a href="{{ route('DetailTransaksi.destroy', $dp->id_transaksi) }}"
 													
-													onclick="event.preventDefault(); confirmDelete('{{ $dp->id_detail }}');">
+													onclick="event.preventDefault(); confirmDelete('{{ $dp->id_transaksi }}');">
                                                     <button class="btn btn-danger text-white"><i class="bi bi-trash"></i>Hapus</button>
 									</a>												
 												{{-- Delete Button --}}
 												
 												 
-												 <form id="delete-form-{{ $dp->id_detail }}" action="{{ route('DetailTransaksi.destroy', $dp->id_detail) }}" method="POST" style="display: none;">
+												 <form id="delete-form-{{ $dp->id_transaksi }}" action="{{ route('DetailTransaksi.destroy', $dp->id_transaksi) }}" method="POST" style="display: none;">
 													 @csrf
 													 @method('DELETE')
 												 </form>
