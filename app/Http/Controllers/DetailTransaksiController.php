@@ -30,7 +30,7 @@ class DetailTransaksiController extends Controller
         
     }
 
-    public function destroy($id_kelas)
+    public function destroy($id_transaksi)
     {
         try {
             // Temukan lokasi berdasarkan kode lokasi
