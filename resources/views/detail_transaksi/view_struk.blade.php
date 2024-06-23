@@ -61,7 +61,7 @@
                         <tr>
                             <th class="table-plus datatable-nosort" colspan="4"></th>
                             <th class="table-plus datatable-nosort">
-                                <a href="{{ route('cetak.struk', $id_tr['id_transaksi']) }}">
+                                <a href="{{ route('cetak.struk', $id_tr['id']) }}">
                                 <button class="btn btn-primary" title="Cetak Struk">
                                     <i class="fa fa-print"></i>
                                 </button>

@@ -30,37 +30,17 @@ class DetailTransaksiController extends Controller
         
     }
 
-    public function destroy($id_transaksi)
-    {
-        try {
-            // Temukan lokasi berdasarkan kode lokasi
-            $lokasi = Kelas::where('id_kelas', $id_kelas)->first();
-    
-            // Hapus data lokasi jika ditemukan
-            if ($lokasi) {
-                $lokasi->delete();
-                return redirect()->route('kelas.index')->with('success', 'Detail Transaksi berhasil dihapus');
-            }
-    
-            // Redirect dengan notifikasi gagal jika lokasi tidak ditemukan
-            return redirect()->route('kelas.index')->with('error', 'Detail Transaksi tidak ditemukan');
-        } catch (\Exception $e) {
-            // Tampilkan pesan kesalahan untuk debugging
-            return redirect()->route('kelas.index')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
-        }
-    }
-
-    public function detail($id_transaksi)
+    public function detail($id)
     {
         $struk = DB::table('detail_transaksi')
         ->select('*')
-        ->join('transaksi', 'transaksi.id_transaksi', '=', 'detail_transaksi.id_transaksi')
-        ->join('barang','barang.id_barang','=','detail_transaksi.id_barang')
+        ->join('transaksi', 'transaksi.id', '=', 'detail_transaksi.id_transaksi')
+        ->join('barang','barang.id_barang','=','detail_transaksi.barang_id')
         ->join('kategori','kategori.id_kategori','=','barang.id_kategori')
         // ->groupBy('tgl_transaksi')
-        ->where('detail_transaksi.id_transaksi', '=', $id_transaksi)
+        ->where('detail_transaksi.id_transaksi', '=', $id)
         ->get();
-        $id_tr['id_transaksi']=$id_transaksi;
+        $id_tr['id']=$id;
 // dd($struk);exit;
         // $pendaftaran = pendaftaran::where('id_pendaftaran', $id_pendaftaran)->firstOrFail();
         return view('detail_transaksi/view_struk', compact('struk','id_tr'),  ["title" => "Data Struk"]);
@@ -69,8 +49,8 @@ class DetailTransaksiController extends Controller
 {
     $struk = DB::table('detail_transaksi')
     ->select('*')
-    ->join('transaksi', 'transaksi.id_transaksi', '=', 'detail_transaksi.id_transaksi')
-        ->join('barang','barang.id_barang','=','detail_transaksi.id_barang')
+    ->join('transaksi', 'transaksi.id', '=', 'detail_transaksi.id_transaksi')
+        ->join('barang','barang.id_barang','=','detail_transaksi.barang_id')
         ->join('kategori','kategori.id_kategori','=','barang.id_kategori')
         // ->groupBy('tgl_transaksi')
         ->where('detail_transaksi.id_transaksi', '=', $id)
@@ -79,16 +59,17 @@ class DetailTransaksiController extends Controller
 
     return $pdf->stream('struk-transaksi.pdf');
 }
+
 public function cetakRekap()
 {
     $tanggal_dari = request('tanggal_dari');
-$tanggal_sampai = request('tanggal_sampai');
+    $tanggal_sampai = request('tanggal_sampai');
 
 // Mengambil data transaksi dengan filter tanggal
 $transaksi = DB::table('detail_transaksi')
     ->select('*')
-    ->join('transaksi', 'transaksi.id_transaksi', '=', 'detail_transaksi.id_transaksi')
-    ->join('barang', 'barang.id_barang', '=', 'detail_transaksi.id_barang')
+    ->join('transaksi', 'transaksi.id', '=', 'detail_transaksi.id_transaksi')
+    ->join('barang', 'barang.id_barang', '=', 'detail_transaksi.barang_id')
     ->join('kategori', 'kategori.id_kategori', '=', 'barang.id_kategori')
     ->where('transaksi.tanggal', '>=', $tanggal_dari)
     ->where('transaksi.tanggal', '<=', $tanggal_sampai)

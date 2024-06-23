@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transaksi', function (Blueprint $table) {
-            $table->increments('id_transaksi');
+            $table->increments('id');
             $table->date('tanggal');
             $table->decimal('harga_bayar', 10, 2);
             $table->decimal('harga_kembali', 10, 2);

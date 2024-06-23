@@ -80,18 +80,18 @@
 								<td class="table-plus">{{ $no++ }}</td>
 									<td class="table-plus">{{ $dp->tanggal }}</td>
 									<td>
-									<a href="{{ route('DetailTransaksi.detail', $dp->id_transaksi) }}"
+									<a href="{{ route('DetailTransaksi.detail', $dp->id) }}"
                                     <button class="btn btn-success text-white"><i class="bi bi-eye"></i>Detail</button>
                                     </a>
-                                    <a href="{{ route('DetailTransaksi.destroy', $dp->id_transaksi) }}"
+                                    <a href="{{ route('DetailTransaksi.destroy', $dp->id) }}"
 													
-													onclick="event.preventDefault(); confirmDelete('{{ $dp->id_transaksi }}');">
+													onclick="event.preventDefault(); confirmDelete('{{ $dp->id }}');">
                                                     <button class="btn btn-danger text-white"><i class="bi bi-trash"></i>Hapus</button>
 									</a>												
 												{{-- Delete Button --}}
 												
 												 
-												 <form id="delete-form-{{ $dp->id_transaksi }}" action="{{ route('DetailTransaksi.destroy', $dp->id_transaksi) }}" method="POST" style="display: none;">
+												 <form id="delete-form-{{ $dp->id }}" action="{{ route('DetailTransaksi.destroy', $dp->id) }}" method="POST" style="display: none;">
 													 @csrf
 													 @method('DELETE')
 												 </form>

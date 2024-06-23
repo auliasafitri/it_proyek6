@@ -9,14 +9,14 @@ class DetailTransaksi extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id_detail',
+        'id',
         'id_transaksi',
-        'id_barang',
+        'barang_id',
         'jumlah_barang',
         'sub_total',
     ];
     protected $table='detail_transaksi';
-    protected $primaryKey = 'id_detail';
+    protected $primaryKey = 'id';
     protected $keyType = 'string';
     public $timestamps = false;
 
