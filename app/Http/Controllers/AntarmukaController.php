@@ -25,7 +25,7 @@ class AntarmukaController extends Controller
         //dashboard view admin
         
         $data['title'] = 'Dashboard';
-        $kategori = DB::table('kategori')
+        $kategori = DB::table('kategoris')
             // ->where('jenis_kelola', '=', 'Masuk',)
             ->count();
 

@@ -16,7 +16,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = DB::table('kategori')->get();
+        $kategori = DB::table('kategoris')->get();
         return view('kategori.view_kategori', compact('kategori'), ["title" => "Kategori"]);
     }
 

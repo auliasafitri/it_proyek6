@@ -23,7 +23,7 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-12">
 						<div class="title">
-							<h4>KATEGORI BARANG</h4>
+							<h4>KATEGORI</h4>
 						</div>
 						<nav aria-label="breadcrumb" role="navigation">
 							<ol class="breadcrumb">
@@ -54,7 +54,7 @@
 						<thead>
 							<tr>
 								<th class="table-plus datatable-nosort">NO</th>
-								<th class="table-plus datatable-nosort">KATEGORI BARANG</th>
+								<th class="table-plus datatable-nosort">KATEGORI</th>
 								<th class="datatable-nosort">AKSI</th>
 							</tr>
 						</thead>
